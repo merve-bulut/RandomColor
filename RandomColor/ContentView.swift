@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var backgroundColor = Color.white
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            backgroundColor
+                .ignoresSafeArea()
+            
+            Text("Ekrana Dokun")
+                .font(.largeTitle)
+                .foregroundColor(.black)
+                .padding()
         }
-        .padding()
+        .onTapGesture {
+            backgroundColor = Color(
+                red: .random(in: 0...1),
+                green: .random(in: 0...1),
+                blue: .random(in: 0...1)
+
+            )
+        }
     }
 }
 
